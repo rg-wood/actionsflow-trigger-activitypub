@@ -1,16 +1,16 @@
 {
-  "name": "@actionsflow/trigger-example",
+  "name": "@actionsflow/trigger-activitypub",
   "version": "1.0.0",
-  "description": "Actionsflow trigger example",
+  "description": "Actionsflow trigger for ActivityPub",
   "keywords": [
-    "example",
+    "activitypub",
     "actionsflow",
     "trigger"
   ],
-  "author": "Owen Young <theowenyoung@gmail.com>",
+  "author": "Ric Wood <theowenyoung@gmail.com>",
   "homepage": "https://github.com/actionsflow/actionsflow-trigger-example",
   "license": "MIT",
-  "main": "dist/src/index.js",
+  "main": "dist/src/ActivityPubTrigger.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/actionsflow/actionsflow-trigger-example.git"
@@ -28,10 +28,13 @@
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/actionsflow/actionsflow-trigger-example/issues"
+    "url": "https://github.com/rg-wood/actionsflow-trigger-activitypub/issues/new"
   },
   "dependencies": {
-    "actionsflow-core": "^1.5.4"
+    "@types/html-to-text": "^9.0.4",
+    "actionsflow-core": "^1.5.4",
+    "html-to-text": "^9.0.5",
+    "typed-rest-client": "^1.8.11"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",

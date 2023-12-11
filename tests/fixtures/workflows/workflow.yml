@@ -1,0 +1,15 @@
+on:
+  activitypub:
+    host: toot.io
+    user: testgrislyeye
+
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          key: ${{on.activitypub.outputs.key}}
+        run: |
+          echo key: $key
