@@ -30,8 +30,9 @@ export default class ActivityPubTrigger extends Trigger<Post> {
         .filter((activity) => activity.published > cutoff);
 
       const posts = notes!.map((activity) => {
-        const text = htmlToText(activity.object.contentMap.en)
-        return new Post(activity.id, text)
+        const item = activity.object;
+        const text = htmlToText(item.contentMap.en)
+        return new Post(item.id, text, item.inReplyTo)
       });
 
       return posts;

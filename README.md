@@ -33,7 +33,8 @@ An outputs example:
 ```json
 {
   "uri": "uniqueId",
-  "message": "hello world title"
+  "message": "hello world title",
+  "replyto": "optionalUniqueReplyId"
 }
 ```
 
@@ -49,7 +50,9 @@ jobs:
         env:
           uri: ${{on.activitypub.outputs.uri}}
           message: ${{on.activitypub.outputs.message}}
+          reply: ${{ on.activitypub.outputs.replyto}}
         run: |
           echo uri: $uri
           echo message: $message
+          echo reply: $reply
 ```
