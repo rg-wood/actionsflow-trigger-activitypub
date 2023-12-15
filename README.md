@@ -1,24 +1,26 @@
-# `@actionsflow/trigger-example`
+# `@actionsflow/activitypub-trigger`
 
-This is an [Actionsflow](https://github.com/actionsflow/actionsflow) example trigger.
+This is an [Actionsflow](https://github.com/actionsflow/actionsflow) trigger for ActivityPub.
 
 ## Install
 
 ```bash
-npm i @actionsflow/trigger-example
+npm i @actionsflow/trigger-activitypub
 ```
 
 ## Usage
 
 ```yaml
 on:
-  example:
-    param1: value1
+  activitypub:
+    host: example.org
+    user: test
 ```
 
 ## Options
 
-- `param1`, optional, describe your param
+- `host`, required, hostname of source ActivityPub instance
+- `user`, required, source user account
 
 > You can use [General Config for Actionsflow Trigger](https://actionsflow.github.io/docs/workflow/#ontriggerconfig) for more customization.
 
@@ -30,27 +32,24 @@ An outputs example:
 
 ```json
 {
-  "id": "uniqueId",
-  "title": "hello world title"
+  "uri": "uniqueId",
+  "message": "hello world title"
 }
 ```
 
 You can use the outputs like this:
 
 ```yaml
-on:
-  example:
-    param1: value1
 jobs:
   print:
     name: Print
     runs-on: ubuntu-latest
     steps:
-      - name: Print Outputs
+      - name: Print Post Outputs
         env:
-          title: ${{ on.example.outputs.title }}
-          id: ${{ on.example.outputs.id }}
+          uri: ${{on.activitypub.outputs.uri}}
+          message: ${{on.activitypub.outputs.message}}
         run: |
-          echo "title: $title"
-          echo "id: $id"
+          echo uri: $uri
+          echo message: $message
 ```
