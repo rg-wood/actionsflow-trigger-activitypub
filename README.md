@@ -5,7 +5,7 @@ This is an [Actionsflow](https://actionsflow.github.io/) trigger for ActivityPub
 ## Install
 
 ```bash
-npm i @actionsflow/trigger-activitypub
+npm i @actionsflow/trigger-activitypub --save
 ```
 
 ## Usage
