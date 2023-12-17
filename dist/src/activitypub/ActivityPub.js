@@ -12,7 +12,11 @@ class ActivityPub {
             if (uri) {
                 const response = yield ActivityPub.http.get(uri, ActivityPub.accept);
                 const body = yield response.readBody();
-                const user = JSON.parse(body);
+                const outbox = JSON.parse(body);
+                const user = {
+                    self: uri,
+                    outbox: outbox.outbox
+                };
                 return user;
             }
             return undefined;

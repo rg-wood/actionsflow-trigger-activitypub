@@ -1,6 +1,6 @@
 import { Trigger } from "./sanity";
 import { Post } from "./Post";
-import { Activity, ActivityPub, WebFinger } from "./activitypub";
+import { Actor, Activity, ActivityPub, WebFinger } from "./activitypub";
 import { htmlToText } from "html-to-text";
 
 type Minutes = number;
@@ -13,6 +13,11 @@ function publishedAscending(a: Activity, b: Activity) {
   }
   return 0;
 }
+
+const directRepliesOnlyFor: (actor: Actor) => (activity: Activity) => boolean =
+  (actor: Actor) =>
+    (activity: Activity) =>
+      activity.cc.length === 1 &&  activity.cc.includes(`${actor.self}/followers`)
 
 export default class ActivityPubTrigger extends Trigger<Post> {
   private static cutoffPeriod: Minutes = 30;
@@ -37,6 +42,7 @@ export default class ActivityPubTrigger extends Trigger<Post> {
         .filter((activity) => activity.type == "Create")
         .filter((activity) => activity.object.type == "Note")
         .filter((activity) => activity.published > cutoff)
+        .filter(directRepliesOnlyFor(actor))
         .sort(publishedAscending);
 
       const posts = notes!.map((activity) => {

@@ -4,6 +4,7 @@ interface Outbox {
   readonly orderedItems: {
     readonly type: string;
     readonly published: string;
+    readonly cc: string[];
     readonly object: {
       readonly id: string;
       readonly type: string;
@@ -18,6 +19,7 @@ export function fromJson(json: string): Activity[] {
     return {
       type: item.type,
       published: new Date(Date.parse(item.published)),
+      cc: item.cc,
       object: item.object,
     };
   });

@@ -7,6 +7,7 @@ function fromJson(json) {
         return {
             type: item.type,
             published: new Date(Date.parse(item.published)),
+            cc: item.cc,
             object: item.object,
         };
     });

@@ -14,6 +14,7 @@ function publishedAscending(a, b) {
     }
     return 0;
 }
+const directRepliesOnlyFor = (actor) => (activity) => activity.cc.length === 1 && activity.cc.includes(`${actor.self}/followers`);
 class ActivityPubTrigger extends sanity_1.Trigger {
     trigger() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -29,6 +30,7 @@ class ActivityPubTrigger extends sanity_1.Trigger {
                     .filter((activity) => activity.type == "Create")
                     .filter((activity) => activity.object.type == "Note")
                     .filter((activity) => activity.published > cutoff)
+                    .filter(directRepliesOnlyFor(actor))
                     .sort(publishedAscending);
                 const posts = notes.map((activity) => {
                     const item = activity.object;
