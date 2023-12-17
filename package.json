@@ -1,6 +1,6 @@
 {
-  "name": "@socialsflow/trigger-activitypub",
-  "version": "1.0.0",
+  "name": "@actionsflow/trigger-activitypub",
+  "version": "1.0.1",
   "description": "Actionsflow trigger for ActivityPub",
   "keywords": [
     "activitypub",
