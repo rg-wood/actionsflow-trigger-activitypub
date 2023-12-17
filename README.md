@@ -66,3 +66,4 @@ Please note that:
 * **No media.** We do not currently support media attachments.
 * **No polls.** We do not currently support poll posts.
 * **Public only.** We only support public ActivityPub posts.
+* **English only.** We  currently only support posts using the `en` (English) language code.
