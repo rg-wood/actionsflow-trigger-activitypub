@@ -1,13 +1,13 @@
 {
   "name": "@actionsflow/trigger-activitypub",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Actionsflow trigger for ActivityPub",
   "keywords": [
     "activitypub",
     "actionsflow",
     "trigger"
   ],
-  "author": "Ric Wood <theowenyoung@gmail.com>",
+  "author": "Ric Wood <ric@grislyeye.com>",
   "homepage": "https://github.com/actionsflow/actionsflow-trigger-example",
   "license": "MIT",
   "main": "dist/src/ActivityPubTrigger.js",
