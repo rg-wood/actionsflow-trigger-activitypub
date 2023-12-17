@@ -1,6 +1,6 @@
 # `@actionsflow/activitypub-trigger`
 
-This is an [Actionsflow](https://github.com/actionsflow/actionsflow) trigger for ActivityPub.
+This is an [Actionsflow](https://actionsflow.github.io/) trigger for ActivityPub.
 
 ## Install
 
